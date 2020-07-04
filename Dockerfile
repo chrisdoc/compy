@@ -41,7 +41,10 @@ COPY \
 # TODO: configure HTTP BASIC authentication
 # TODO: user-provided certificates
 ENV \
-    CERTIFICATE_DOMAIN="localhost"
+    CERTIFICATE_DOMAIN="localhost" \
+		USERNAME="admin" \
+		PASSWORD="admin"
+
 
 EXPOSE 9999
 ENTRYPOINT ["./docker.sh"]

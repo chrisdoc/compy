@@ -12,4 +12,6 @@ cat ca.crt
 exec ./compy \
     -cert cert.crt -key cert.key \
     -ca ca.crt -cakey ca.key \
+		-user ${USERNAME} \
+		-password ${PASSWORD} \
     :9999
