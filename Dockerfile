@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as compy-builder
+FROM ubuntu:20.04 as compy-builder
 MAINTAINER Barna Csorogi <barnacs@justletit.be>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
@@ -10,8 +10,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         libjpeg8-dev
 
 RUN mkdir -p /usr/local/ && \
-    curl -O https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz && \
-    tar xf go1.9.linux-amd64.tar.gz -C /usr/local
+    curl -O https://storage.googleapis.com/golang/go1.14.linux-amd64.tar.gz && \
+    tar xf go1.14.linux-amd64.tar.gz -C /usr/local
 
 RUN mkdir -p /root/go/src/github.com/barnacs/compy/
 COPY . /root/go/src/github.com/barnacs/compy/
@@ -19,7 +19,7 @@ WORKDIR /root/go/src/github.com/barnacs/compy
 RUN /usr/local/go/bin/go get -d -v ./...
 RUN /usr/local/go/bin/go build -v
 
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 MAINTAINER Barna Csorogi <barnacs@justletit.be>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
