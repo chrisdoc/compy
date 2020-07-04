@@ -13,5 +13,5 @@ exec ./compy \
     -cert cert.crt -key cert.key \
     -ca ca.crt -cakey ca.key \
 		-user ${USERNAME} \
-		-password ${PASSWORD} \
+		-pass ${PASSWORD} \
     :9999
